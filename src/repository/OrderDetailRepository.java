@@ -1,8 +1,7 @@
 package repository;
 
-import conection.MySQLConnectionManager;
+import connection.MySQLConnectionManager;
 import service.OrderDetailService;
-import service.ProductService;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

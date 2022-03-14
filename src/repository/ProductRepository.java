@@ -1,6 +1,6 @@
 package repository;
 
-import conection.MySQLConnectionManager;
+import connection.MySQLConnectionManager;
 import service.ProductService;
 
 import java.sql.PreparedStatement;

@@ -1,7 +1,6 @@
 package repository;
 
-import conection.MySQLConnectionManager;
-import service.ProductService;
+import connection.MySQLConnectionManager;
 
 import java.sql.SQLException;
 import java.util.List;
