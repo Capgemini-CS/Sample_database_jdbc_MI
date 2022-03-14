@@ -1,41 +1,20 @@
 package service;
 
+import exception.InvalidQuery;
+import model.OrderDetail;
+import repository.OrderDetailRepository;
+import java.util.List;
+
 public class OrderDetailService {
-    private int orderNumber;
-    private String productCode;
-    private int quantityOrdered;
-    private double priceEach;
-    private int orderLineNumber;
 
-    public OrderDetailService() {}
+    OrderDetailRepository orderDetailRepository = new OrderDetailRepository();
 
-    public void setOrderNumber(int orderNumber) {
-        this.orderNumber = orderNumber;
+    public List<OrderDetail> showAllOrdersWithPriceHigherThan100() throws InvalidQuery {
+        return orderDetailRepository.readFromDatabase();
     }
 
-    public void setProductCode(String productCode) {
-        this.productCode = productCode;
+    public void insertOneOrderDetails() throws InvalidQuery {
+        orderDetailRepository.insertOneOrder();
     }
 
-    public void setQuantityOrdered(int quantityOrdered) {
-        this.quantityOrdered = quantityOrdered;
-    }
-
-    public void setPriceEach(double priceEach) {
-        this.priceEach = priceEach;
-    }
-
-    public void setOrderLineNumber(int orderLineNumber) {
-        this.orderLineNumber = orderLineNumber;
-    }
-
-    @Override
-    public String toString() {
-        return "OrderDetailService{" + "orderNumber=" + orderNumber +
-                ", productCode='" + productCode + '\'' +
-                ", quantityOrdered=" + quantityOrdered +
-                ", priceEach=" + priceEach +
-                ", orderLineNumber=" + orderLineNumber +
-                '}';
-    }
 }
