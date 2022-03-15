@@ -1,5 +1,6 @@
 package repository;
 
+import connection.ConnectionManager;
 import connection.MySQLConnectionManager;
 import exception.InvalidQuery;
 import model.Product;
@@ -13,7 +14,7 @@ import java.util.List;
 
 public class ProductRepository implements RepositoryInterface<Product>{
 
-    MySQLConnectionManager connectionManager = new MySQLConnectionManager();
+    ConnectionManager connectionManager = new MySQLConnectionManager();
 
     @Override
     public List<Product> readFromDatabase() throws InvalidQuery {

@@ -1,9 +1,9 @@
-package model;
+package service;
 
 import lombok.Getter;
 import lombok.Setter;
 
-public class Product {
+public class ProductDTO {
     @Getter @Setter private String productCode;
     @Getter @Setter private String productName;
     @Getter @Setter private String productLine;
@@ -13,12 +13,11 @@ public class Product {
     @Getter @Setter private int quantityInStock;
     @Getter @Setter private double buyPrice;
 
-    public Product() {
-    }
+    public ProductDTO() { }
 
     @Override
     public String toString() {
-        final StringBuffer sb = new StringBuffer("Product{");
+        final StringBuffer sb = new StringBuffer("ProductDTO{");
         sb.append("productCode='").append(productCode).append('\'');
         sb.append(", productName='").append(productName).append('\'');
         sb.append(", productLine='").append(productLine).append('\'');

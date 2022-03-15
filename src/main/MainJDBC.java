@@ -1,6 +1,13 @@
 package main;
 
 import exception.InvalidQuery;
+import model.Customer;
+import model.OrderDetail;
+import model.Product;
+import repository.CustomerRepository;
+import repository.OrderDetailRepository;
+import repository.ProductRepository;
+import repository.RepositoryInterface;
 import service.CustomerService;
 import service.OrderDetailService;
 import service.ProductService;
@@ -9,7 +16,8 @@ public class MainJDBC {
 
     public static void main(String[] args) throws InvalidQuery {
 
-        ProductService productService = new ProductService();
+        RepositoryInterface<Product> productRepositoryInterface = new ProductRepository();
+        ProductService productService = new ProductService(productRepositoryInterface);
         productService.showAllProductsByProductLine();
 
         System.out.println();
@@ -22,7 +30,8 @@ public class MainJDBC {
         System.out.println();
         System.out.println();
 
-        OrderDetailService orderDetailService = new OrderDetailService();
+        RepositoryInterface<OrderDetail> orderDetailRepositoryInterface = new OrderDetailRepository();
+        OrderDetailService orderDetailService = new OrderDetailService(orderDetailRepositoryInterface);
         orderDetailService.showAllOrdersWithPriceHigherThan100();
 
         System.out.println();
@@ -35,7 +44,7 @@ public class MainJDBC {
         System.out.println();
         System.out.println();
 
-        productService.showTheAverageValueByProductLine();
+        //productService.showTheAverageValueByProductLine();
 
         System.out.println();
         System.out.println();
@@ -59,7 +68,8 @@ public class MainJDBC {
         System.out.println();
         System.out.println();
 
-        CustomerService customerService = new CustomerService();
+        RepositoryInterface<Customer> customerRepositoryInterface = new CustomerRepository();
+        CustomerService customerService = new CustomerService(customerRepositoryInterface);
         //customerService.deleteOneCustomerByCustomerId("480");
 
         System.out.println();
@@ -72,7 +82,7 @@ public class MainJDBC {
         System.out.println();
         System.out.println();
 
-        customerService.updatePhoneCustomerByCity("Madrid");
+        //customerService.updatePhoneCustomerByCity("Madrid");
     }
 }
 

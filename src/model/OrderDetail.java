@@ -1,33 +1,16 @@
 package model;
 
+import lombok.Getter;
+import lombok.Setter;
+
 public class OrderDetail {
-    private int orderNumber;
-    private String productCode;
-    private int quantityOrdered;
-    private double priceEach;
-    private int orderLineNumber;
+    @Getter @Setter private int orderNumber;
+    @Getter @Setter private String productCode;
+    @Getter @Setter private int quantityOrdered;
+    @Getter @Setter private double priceEach;
+    @Getter @Setter private int orderLineNumber;
 
     public OrderDetail() {}
-
-    public void setOrderNumber(int orderNumber) {
-        this.orderNumber = orderNumber;
-    }
-
-    public void setProductCode(String productCode) {
-        this.productCode = productCode;
-    }
-
-    public void setQuantityOrdered(int quantityOrdered) {
-        this.quantityOrdered = quantityOrdered;
-    }
-
-    public void setPriceEach(double priceEach) {
-        this.priceEach = priceEach;
-    }
-
-    public void setOrderLineNumber(int orderLineNumber) {
-        this.orderLineNumber = orderLineNumber;
-    }
 
     @Override
     public String toString() {
