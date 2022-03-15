@@ -21,15 +21,10 @@ public class ProductRepository implements RepositoryInterface<Product>{
         List<Product> products;
         try {
             products = new ArrayList<>();
-
             String query = "select * from products where productLine like ?";
-
             PreparedStatement statement = connectionManager.getConnection().prepareStatement(query);
-
             statement.setString(1, "Motorcycles");
-
             ResultSet resultSet = statement.executeQuery();
-
             while (resultSet.next()) {
                 Product product = new Product();
                 product.setProductCode(resultSet.getString("productCode"));
@@ -50,6 +45,63 @@ public class ProductRepository implements RepositoryInterface<Product>{
             throw new InvalidQuery("Your query is incorrect or could not be performed.");
         }
         return products;
+    }
+
+    @Override
+    public void deleteRow(String inputFromUser) throws InvalidQuery {
+        try {
+            String query = "delete from products where productCode = ?";
+            PreparedStatement statement = connectionManager.getConnection().prepareStatement(query);
+            statement.setString(1,inputFromUser);
+            int result = statement.executeUpdate();
+            if(result > 0) {
+                System.out.println("Your delete is done with success!");
+            }
+        } catch (SQLException e) {
+            Logger.warn("Check you query or your parameters.");
+            throw new InvalidQuery("You didn't enter a valid customer ID or the customer does not exist.");
+        }
+    }
+
+    @Override
+    public void updateRow(String inputFromUser) throws InvalidQuery {
+        try {
+            String query = "update products set quantityInStock = 10000 where productCode = ?";
+            PreparedStatement statement = connectionManager.getConnection().prepareStatement(query);
+            statement.setString(1,inputFromUser);
+            int result = statement.executeUpdate();
+            if(result > 0) {
+                System.out.println("Your update is done with success!");
+            }
+        } catch (SQLException e) {
+            Logger.warn("Check you query or your parameters.");
+            throw new InvalidQuery("You didn't enter a valid city or the city does not exist.");
+        }
+    }
+
+    @Override
+    public void insertRow() throws InvalidQuery {
+        try {
+            String query = "insert into products values (?,?,?,?,?,?,?,?,?,?)";
+            PreparedStatement statement = connectionManager.getConnection().prepareStatement(query);
+            statement.setString(1,"S01_1111");
+            statement.setString(2,"Bmw Seria M4 2022");
+            statement.setString(3,"Classic Cars");
+            statement.setString(4,"1:18");
+            statement.setString(5,"Bavaria Motor");
+            statement.setString(6,"E bmw, deci trage periculos rau si ia curbele de-a latu");
+            statement.setInt(7,2000);
+            statement.setDouble(8,21000);
+            statement.setDouble(9,42000000);
+            statement.setDouble(10,17.19);
+            int result = statement.executeUpdate();
+            if(result > 0) {
+                System.out.println("Your insert is done with success!");
+            }
+        } catch (SQLException e) {
+            Logger.warn("Check you query or your parameters.");
+            throw new InvalidQuery("You didn't enter the correct parameters or the object entered already exists.");
+        }
     }
 
     public List<Product> showTheAverageValue() throws InvalidQuery {

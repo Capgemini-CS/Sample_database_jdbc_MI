@@ -1,4 +1,4 @@
-package service;
+package service.dto;
 
 import lombok.Getter;
 import lombok.Setter;

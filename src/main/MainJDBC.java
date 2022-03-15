@@ -30,6 +30,35 @@ public class MainJDBC {
         System.out.println();
         System.out.println();
 
+        productService.insertOneProduct();
+
+        System.out.println();
+        System.out.println();
+        System.out.println("*****_____-----_____*****_____-----_____*****_____-----_____*****_____-----_____*****_____-----_____*****_____-----_____*****_____-----_____*****");
+        System.out.println("*****_____-----_____*****_____-----_____*****_____-----_____*****_____-----_____*****_____-----_____*****_____-----_____*****_____-----_____*****");
+        System.out.println("*****_____-----_____*****_____-----_____*****_____-----_____*****_____-----_____*****_____-----_____*****_____-----_____*****_____-----_____*****");
+        System.out.println("*****_____-----_____*****_____-----_____*****_____-----_____*****_____-----_____*****_____-----_____*****_____-----_____*****_____-----_____*****");
+        System.out.println("*****_____-----_____*****_____-----_____*****_____-----_____*****_____-----_____*****_____-----_____*****_____-----_____*****_____-----_____*****");
+        System.out.println();
+        System.out.println();
+
+        productService.updateProducts("S12_1099");
+
+        System.out.println();
+        System.out.println();
+        System.out.println("*****_____-----_____*****_____-----_____*****_____-----_____*****_____-----_____*****_____-----_____*****_____-----_____*****_____-----_____*****");
+        System.out.println("*****_____-----_____*****_____-----_____*****_____-----_____*****_____-----_____*****_____-----_____*****_____-----_____*****_____-----_____*****");
+        System.out.println("*****_____-----_____*****_____-----_____*****_____-----_____*****_____-----_____*****_____-----_____*****_____-----_____*****_____-----_____*****");
+        System.out.println("*****_____-----_____*****_____-----_____*****_____-----_____*****_____-----_____*****_____-----_____*****_____-----_____*****_____-----_____*****");
+        System.out.println("*****_____-----_____*****_____-----_____*****_____-----_____*****_____-----_____*****_____-----_____*****_____-----_____*****_____-----_____*****");
+        System.out.println();
+        System.out.println();
+
+        productService.deleteProducts("S08_1001");
+
+
+
+
         RepositoryInterface<OrderDetail> orderDetailRepositoryInterface = new OrderDetailRepository();
         OrderDetailService orderDetailService = new OrderDetailService(orderDetailRepositoryInterface);
         orderDetailService.showAllOrdersWithPriceHigherThan100();
@@ -44,7 +73,7 @@ public class MainJDBC {
         System.out.println();
         System.out.println();
 
-        //productService.showTheAverageValueByProductLine();
+        orderDetailService.insertOneOrderDetails();
 
         System.out.println();
         System.out.println();
@@ -56,7 +85,7 @@ public class MainJDBC {
         System.out.println();
         System.out.println();
 
-        //orderDetailService.insertOneOrderDetails();
+        orderDetailService.updateOnOrdersTable("150");
 
         System.out.println();
         System.out.println();
@@ -67,10 +96,15 @@ public class MainJDBC {
         System.out.println("*****_____-----_____*****_____-----_____*****_____-----_____*****_____-----_____*****_____-----_____*****_____-----_____*****_____-----_____*****");
         System.out.println();
         System.out.println();
+
+        orderDetailService.deleteOnOrdersTable("10101");
+
+
 
         RepositoryInterface<Customer> customerRepositoryInterface = new CustomerRepository();
         CustomerService customerService = new CustomerService(customerRepositoryInterface);
-        //customerService.deleteOneCustomerByCustomerId("480");
+        customerService.deleteOneCustomerByCustomerId("480");
+
 
         System.out.println();
         System.out.println();
@@ -82,7 +116,31 @@ public class MainJDBC {
         System.out.println();
         System.out.println();
 
-        //customerService.updatePhoneCustomerByCity("Madrid");
+        customerService.updatePhoneCustomerByCity("Madrid");
+
+        System.out.println();
+        System.out.println();
+        System.out.println("*****_____-----_____*****_____-----_____*****_____-----_____*****_____-----_____*****_____-----_____*****_____-----_____*****_____-----_____*****");
+        System.out.println("*****_____-----_____*****_____-----_____*****_____-----_____*****_____-----_____*****_____-----_____*****_____-----_____*****_____-----_____*****");
+        System.out.println("*****_____-----_____*****_____-----_____*****_____-----_____*****_____-----_____*****_____-----_____*****_____-----_____*****_____-----_____*****");
+        System.out.println("*****_____-----_____*****_____-----_____*****_____-----_____*****_____-----_____*****_____-----_____*****_____-----_____*****_____-----_____*****");
+        System.out.println("*****_____-----_____*****_____-----_____*****_____-----_____*****_____-----_____*****_____-----_____*****_____-----_____*****_____-----_____*****");
+        System.out.println();
+        System.out.println();
+
+        customerService.showAllCustomers();
+
+        System.out.println();
+        System.out.println();
+        System.out.println("*****_____-----_____*****_____-----_____*****_____-----_____*****_____-----_____*****_____-----_____*****_____-----_____*****_____-----_____*****");
+        System.out.println("*****_____-----_____*****_____-----_____*****_____-----_____*****_____-----_____*****_____-----_____*****_____-----_____*****_____-----_____*****");
+        System.out.println("*****_____-----_____*****_____-----_____*****_____-----_____*****_____-----_____*****_____-----_____*****_____-----_____*****_____-----_____*****");
+        System.out.println("*****_____-----_____*****_____-----_____*****_____-----_____*****_____-----_____*****_____-----_____*****_____-----_____*****_____-----_____*****");
+        System.out.println("*****_____-----_____*****_____-----_____*****_____-----_____*****_____-----_____*****_____-----_____*****_____-----_____*****_____-----_____*****");
+        System.out.println();
+        System.out.println();
+
+        customerService.insertOneCustomer();
     }
 }
 

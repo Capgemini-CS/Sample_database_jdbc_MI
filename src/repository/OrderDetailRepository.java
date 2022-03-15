@@ -47,11 +47,44 @@ public class OrderDetailRepository implements RepositoryInterface<OrderDetail> {
         return orders;
     }
 
-    public void insertOneOrder() throws InvalidQuery {
+    @Override
+    public void deleteRow(String inputFromUser) throws InvalidQuery {
+        try {
+            String query = "delete from orderdetails where orderNumber = ? AND productCode = ?";
+            PreparedStatement statement = connectionManager.getConnection().prepareStatement(query);
+            statement.setString(1,inputFromUser);
+            int result = statement.executeUpdate();
+            if(result > 0) {
+                System.out.println("Your delete is done with success!");
+            }
+        } catch (SQLException e) {
+            Logger.warn("Check you query or your parameters.");
+            throw new InvalidQuery("You didn't enter a valid customer ID or the customer does not exist.");
+        }
+    }
+
+    @Override
+    public void updateRow(String inputFromUser) throws InvalidQuery {
+        try {
+            String query = "update orderdetails set priceEach = 350 where priceEach > ?";
+            PreparedStatement statement = connectionManager.getConnection().prepareStatement(query);
+            statement.setString(1,inputFromUser);
+            int result = statement.executeUpdate();
+            if(result > 0) {
+                System.out.println("Your update is done with success!");
+            }
+        } catch (SQLException e) {
+            Logger.warn("Check you query or your parameters.");
+            throw new InvalidQuery("You didn't enter a valid city or the city does not exist.");
+        }
+    }
+
+    @Override
+    public void insertRow() throws InvalidQuery {
         try {
             String query = "insert into orderdetails values (?,?,?,?,?)";
             PreparedStatement statement = connectionManager.getConnection().prepareStatement(query);
-            statement.setInt(1, 10100);
+            statement.setInt(1, 10196);
             statement.setString(2,"S700_3962");
             statement.setInt(3,80);
             statement.setDouble(4,60.20);

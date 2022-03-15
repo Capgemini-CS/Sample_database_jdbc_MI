@@ -1,7 +1,7 @@
 package service.mapper;
 
 import model.Product;
-import service.ProductDTO;
+import service.dto.ProductDTO;
 
 public class ProductMapper {
 
